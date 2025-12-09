@@ -24,6 +24,20 @@ jobs:
           chmod +x scripts/increment_version.sh
           ./scripts/increment_version.sh
 
+      - name: Generate Changelog
+        run: |
+          chmod +x scripts/generate_changelog.sh
+          ./scripts/generate_changelog.sh
+
+      - name: Commit & Push Version Bump
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add pubspec.yaml CHANGELOG.md
+          git commit -m "Bump version & update changelog [skip ci]"
+          git push
+
+
       - name: Build APK (Dev)
         if: github.ref == 'refs/heads/develop'
         run: flutter build apk --release -t lib/main_dev.dart
