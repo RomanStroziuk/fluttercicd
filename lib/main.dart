@@ -19,9 +19,7 @@ class MainApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('${Environment.current.name} Environment'),
-        ),
+        appBar: AppBar(title: Text('${Environment.current.name} Environment')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
